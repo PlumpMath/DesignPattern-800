@@ -1,20 +1,37 @@
 package net.hfutonline.pattern.singleton;
 
+import java.io.ObjectStreamException;
+import java.io.Serializable;
+
 /**
- * ¶öººÊ½µ¥Àı
- * ²»ÄÜÑÓ³Ù¼ÓÔØ
+ * é¥¿æ±‰å¼å•ä¾‹ ä¸èƒ½å»¶è¿ŸåŠ è½½
+ * 
  * @author zlb
  *
  */
-public class Singleton1 {
-	
-	private static Singleton1 instance = new Singleton1();//Àà³õÊ¼»¯Ê±£¬Á¢¼´¼ÓÔØÕâ¸ö¶ÔÏó£¡
+public class Singleton1 implements Serializable {
+
 	/**
-	 * Ë½ÓĞ¹¹ÔìÆ÷£¬ºËĞÄ
+	 * 
 	 */
-	private Singleton1(){}
-	
-	public static Singleton1 getInstance(){
+	private static final long serialVersionUID = -6620081335698377491L;
+	private static Singleton1 instance = new Singleton1();// ç±»åˆå§‹åŒ–æ—¶ï¼Œç«‹å³åŠ è½½è¿™ä¸ªå¯¹è±¡ï¼
+
+	/**
+	 * ç§æœ‰æ„é€ å™¨ï¼Œæ ¸å¿ƒ
+	 */
+	private Singleton1() {
+		if (instance == null) {
+			throw new RuntimeException("ä¸èƒ½ç ´è§£å•ä¾‹");
+		}
+	}
+
+	public static Singleton1 getInstance() {
+		return instance;
+	}
+
+	// é˜²æ­¢ååºåˆ—åŒ–ç ´è§£å•ä¾‹
+	private Object readResolve() throws ObjectStreamException {
 		return instance;
 	}
 }

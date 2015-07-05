@@ -2,7 +2,7 @@ package net.hfutonline.pattern.singleton;
 
 public enum Singleton4 {
 	/**
-	 * ¶¨ÒåÒ»¸öÃ¶¾ÙÔªËØ
+	 * å®šä¹‰ä¸€ä¸ªæšä¸¾å…ƒç´ 
 	 */
 	INSTANCE;
 }

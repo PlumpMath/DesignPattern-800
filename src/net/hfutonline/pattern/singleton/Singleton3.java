@@ -1,20 +1,21 @@
 package net.hfutonline.pattern.singleton;
 
 /**
- * 静态内部类实现单例模式
- * 类加载时天然线程安全，在调用getInstance时才会初始化instance，性能很高
- * @author zlb
+ * 闈欐�佸唴閮ㄧ被瀹炵幇鍗曚緥妯″紡 绫诲姞杞芥椂澶╃劧绾跨▼瀹夊叏锛屽湪璋冪敤getInstance鏃舵墠浼氬垵濮嬪寲instance锛屾�ц兘寰堥珮
+ * 
+ * @author zlb 杩欓噷涓嶅啀鑰冭檻鍙嶅簭鍒楀寲鍜屽弽灏勭殑鏂瑰紡
  *
  */
 public class Singleton3 {
-	private Singleton3(){}
-	
-	private static class SingletonHolder{
-		private static final Singleton3 instance = new Singleton3();
-		
+	private Singleton3() {
 	}
-	
-	public static Singleton3 getInstance(){
+
+	private static class SingletonHolder {
+		private static final Singleton3 instance = new Singleton3();
+
+	}
+
+	public static Singleton3 getInstance() {
 		return SingletonHolder.instance;
 	}
 }
